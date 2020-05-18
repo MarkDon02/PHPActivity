@@ -1,20 +1,18 @@
 $(document).ready(function () {
 	$(document).on('submit', '#formLogin', function (e) {
 		e.preventDefault();
-		var userName = $('#userName').val();
-		var userPass = $('#userPass').val();
+		var userNamejs = $('#UsernameHT').val();
+		var userPassjs = $('#PasswordHT').val();
 
 		$.ajax({
 			url: "Login.php",
 			type: "POST",
-			contentType: 'application/json',
 			data: {
-				userName: userName,
-				userPass: userPass
+				userName: userNamejs,	
+				userPass: userPassjs
 			},
-			success: function (result) {
-				// product was created, go back to products list
-
+			success: function (res) {
+				window.location.replace(res)
 			},
 			error: function (xhr, resp, text) {
 				// show error to console
