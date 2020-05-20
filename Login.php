@@ -11,7 +11,7 @@ if (mysqli_num_rows($result) > 0) {
   // header('Location:./RegistrationPage.php');
   echo "HomePage.php";
 } else {
-  echo "0 results";
+  echo "LoginPage.php";
 }
 
 mysqli_close($connect);

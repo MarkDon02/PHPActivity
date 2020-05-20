@@ -8,46 +8,69 @@
 </header>
 
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Logo</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="HomePage.php">Home</a></li>
-                    <li><a href="SearchPage.php">Search</a></li>
-                    <li><a href="RegistrationPage.php">Register</a></li>
-                    <li class="active"><a href="#">Modify</a></li>
-                </ul>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">CRUD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomePage.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="RegistrationPage.php">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="SearchPage.php">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Modify</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <button id="logoutButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
             </div>
         </div>
     </nav>
-    <div class="container-xl border border-bottom rounded-sm" style="width:800px; margin:0 auto;">
+    <br><br><br><br>
+    <div style="width:800px; margin:0 auto;">
         <form>
+            <div class="input-group mb-3 style=" style="width:800px; margin:0 auto;">
+                <input type="text" class="form-control" placeholder="Student's Full Name"
+                    aria-label="Student's Full Name" aria-describedby="submitSearchUp" id="inputSearchUp" name="inputSearchUp">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="submitSearchUp">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br><br>
+    <div class="container-xl border border-bottom rounded-sm" id="updateDiv" style="width:800px; margin:0 auto; display:none">
+        <form id ="formUpdate" action="Modify.php" method="POST">
+            <input style="display:none" type="text" id="UserIDUp" name="UserIDUp"></input>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label>First name</label>
-                    <input type="text" class="form-control" name="FirstName" placeholder="Enter Firstname" required>
+                    <label>Firstname</label>
+                    <input type="text" class="form-control" id="FirstNameUp" name="FirstNameUp"
+                        placeholder="Enter Firstname" required>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label>Last name</label>
-                    <input type="text" class="form-control" name="LastName" required>
+                    <label>Lastname</label>
+                    <input type="text" class="form-control" id="LastNameUp" name="LastNameUp" placeholder="Enter Lastname"
+                        required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label>Course</label>
-                    <input type="text" class="form-control" name="Course" required>
+                    <input type="text" class="form-control" id="CourseUp" name="CourseUp" placeholder="Enter your Course"
+                        required>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label>Gender</label>
-                    <select class="custom-select" name="Gender" required>
+                    <select class="custom-select" id="GenderUp" name="GenderUp" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -55,22 +78,24 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label>Age</label>
-                    <input type="text" class="form-control" name="Age" required>
+                    <input type="text" class="form-control" id="AgeUp" name="AgeUp" placeholder="Enter Age" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label>Username</label>
-                    <input type="text" class="form-control" name="Username" required>
+                    <input type="text" class="form-control" id="UserNameUp" name="UserNameUp"
+                        placeholder="Enter Preffered Username" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="Password" required>
+                    <input type="text" class="form-control" id="PassWordUp" name="PassWordUp"
+                        placeholder="Enter Preffered Password" required>
                 </div>
             </div>
-            <button class="btn btn-dark rounded-pill" type="submit">Register</button>
+            <button class="btn btn-dark rounded-pill" type="submit" id="submitUp">Update Record</button>
         </form>
     </div>
 </body>
-
+<script type="text/javascript" src="main.js"></script>
 </html>
