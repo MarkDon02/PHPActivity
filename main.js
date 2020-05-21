@@ -4,12 +4,12 @@ $(document).ready(function () {
 		e.preventDefault();
 		var userNamejs = $('#UsernameHT').val();
 		var userPassjs = $('#PasswordHT').val();
-		
+
 		$.ajax({
 			url: "Login.php",
 			type: "POST",
 			data: {
-				userName: userNamejs,	
+				userName: userNamejs,
 				userPass: userPassjs
 			},
 			success: function (res) {
@@ -22,7 +22,7 @@ $(document).ready(function () {
 		});
 	})
 	// Registration
-	$(document).on('submit', '#formReg', function (e){
+	$(document).on('submit', '#formReg', function (e) {
 		e.preventDefault();
 		var firstNamejs = $('#FirstNameReg').val();
 		var lastNamejs = $('#LastNameReg').val();
@@ -31,26 +31,28 @@ $(document).ready(function () {
 		var agejs = $('#AgeReg').val();
 		var regUsernamejs = $('#UserNameReg').val();
 		var regPasswordjs = $('#PassWordReg').val();
-		
-		$.ajax({
-			url: "Registration.php",
-			type: "POST",
-			data: {
-				firstName: firstNamejs,
-				lastName: lastNamejs,
-				course: coursejs,
-				gender: genderjs,
-				age: agejs,
-				userName: regUsernamejs,
-				passWord: regPasswordjs
-			},
-			success: function(res) {
-				window.location.replace(res)
-			},
-			error: function(xhr, resp, text) {
-				console.log(xhr, resp, text);
-			}
-		});
+
+		$('#confirmReg').click(function () {
+			$.ajax({
+				url: "Registration.php",
+				type: "POST",
+				data: {
+					firstName: firstNamejs,
+					lastName: lastNamejs,
+					course: coursejs,
+					gender: genderjs,
+					age: agejs,
+					userName: regUsernamejs,
+					passWord: regPasswordjs
+				},
+				success: function (res) {
+					window.location.replace(res)
+				},
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text);
+				}
+			});
+		})
 	})
 	// Search Data
 	$('#submitSearch').click(function (e) {
@@ -122,7 +124,7 @@ $(document).ready(function () {
 		});
 	})
 	// Update Information
-	$(document).on('submit', '#formUpdate', function (e){
+	$(document).on('submit', '#formUpdate', function (e) {
 		e.preventDefault();
 		var userID = $('#UserIDUp').val();
 		var firstName = $('#FirstNameUp').val();
@@ -132,26 +134,28 @@ $(document).ready(function () {
 		var course = $('#CourseUp').val();
 		var userName = $('#UserNameUp').val();
 		var userPassword = $('#PassWordUp').val();
-		$.ajax({
-            url: 'Modify.php',
-            type: 'POST',
-            data: {
-                userID: userID,
-				firstName: firstName,
-				lastName: lastName,
-				age: age,
-				gender: gender,
-				course: course,
-				userName: userName,
-				userPassword: userPassword
-            },
-            success: function (res) {                
-                window.location.replace(res);
-			},
-			error: function (xhr, resp, text) {
-				// show error to console
-				console.log(xhr, resp, text);
-			}
-        });
+		$('#confirmReg').click(function () {
+			$.ajax({
+				url: 'Modify.php',
+				type: 'POST',
+				data: {
+					userID: userID,
+					firstName: firstName,
+					lastName: lastName,
+					age: age,
+					gender: gender,
+					course: course,
+					userName: userName,
+					userPassword: userPassword
+				},
+				success: function (res) {
+					window.location.replace(res);
+				},
+				error: function (xhr, resp, text) {
+					// show error to console
+					console.log(xhr, resp, text);
+				}
+			});
+		})
 	})
 });

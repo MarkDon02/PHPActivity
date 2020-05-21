@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once 'Authentication.php';
+?>
 <html>
 <header>
     <?php
@@ -27,6 +30,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ModifyPage.php">Modify</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Logout.php">Logout</a>
                 </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">

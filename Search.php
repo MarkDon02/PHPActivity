@@ -16,7 +16,8 @@ if ($searchFunction == "searchByName") {
         echo "<tr><th scope='row'>" . $row["UserID"] ."</th><td>". $row["FirstName"] ."</td><td>". $row["LastName"] ."</td><td>". $row["Age"] ."</td><td>". $row["Gender"] ."</td><td>". $row["Course"] ."</td></tr>";
       }
     } else {
-      echo "Error SQL: $sql" . mysqli_error($connect);
+      echo "ERROR SQL: Can't Find Any USER"; 
+      mysqli_error($connect);
   }
   } else if ($searchFunction == "searchByNameToUpdate") {
 // Search Data to Update (Returns Value)
@@ -53,7 +54,8 @@ if (mysqli_num_rows($result) > 0) {
             echo "<tr><th scope='row'>" . $row["UserID"] ."</th><td>". $row["FirstName"] ."</td><td>". $row["LastName"] ."</td><td>". $row["Age"] ."</td><td>". $row["Gender"] ."</td><td>". $row["Course"] ."</td></tr>";
         }
     } else {
-        echo "Erro SQL: $sql" . mysqli_error($connect);
+      echo "ERROR SQL: Can't Find Any USER"; 
+      mysqli_error($connect);
     }
 }
 ?>

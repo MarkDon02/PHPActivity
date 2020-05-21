@@ -14,7 +14,8 @@ $sql = "UPDATE student SET FirstName='$firstName', LastName='$lastName', Age=$ag
 if (mysqli_query($connect, $sql)) {
     echo "ModifyPage.php";
 } else {
-    echo "ERROR SQL: $sql" . mysqli_error($connect);
+    echo "ERROR SQL: Can't Find Any USER"; 
+    mysqli_error($connect);
 }
 
 mysqli_error($connect);

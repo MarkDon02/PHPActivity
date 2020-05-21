@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    if(isset($_SESSION["Authorize"])){
+        header("Location: HomePage.php");
+    }
+?>
 <html>
 <header>
     <?php
